@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Mama üçün sual</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f3e8ff;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 380px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #5a2ea6;
+            font-size: 22px;
+        }
+
+        .btn {
+            margin: 15px;
+            padding: 12px 25px;
+            background: #c9a7ff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #b48aff;
+        }
+
+        .emoji {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            opacity: 0;
+            animation: rise 2s forwards;
+        }
+
+        @keyframes rise {
+            0% { bottom: -100px; opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 70%; opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Mama, bir dənə oyun var. Onu kompüterə yükləyə bilərəm?</h2>
+
+        <button class="btn" onclick="showEmoji('😊')">Yes</button>
+        <button class="btn" onclick="showEmoji('😢')">No</button>
+    </div>
+
+    <script>
+        function showEmoji(symbol) {
+            const emoji = document.createElement("div");
+            emoji.className = "emoji";
+            emoji.textContent = symbol;
+            document.body.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.remove();
+            }, 2500);
+        }
+    </script>
+
+</body>
+</html>
